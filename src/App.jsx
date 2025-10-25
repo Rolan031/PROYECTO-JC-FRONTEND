@@ -1,17 +1,18 @@
-import {BrowserRouter as Router, Route, Routes, BrowserRouter} from 'react-router-dom'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Home } from './components/Home/Home.jsx'
 
-function App() {
-
-  return 
-  <BrowserRouter>
-  <div className="pages"></div>
-  </BrowserRouter>
+const App = () =>{
+  return(
+    <>
+      <Home/>
+    </>
+  )
 }
 
 export default App
 
-function Leccion(){
+  
+/*function Leccion(){
   const [nombre,setNombre] = useState("");
 
   return (
@@ -20,4 +21,4 @@ function Leccion(){
       <button onClick={console.log(Hola)} aria-placeholder='Ingrese su nombre' id='nombre'>Saludar</button>
     </div>
   )
-}
+} */

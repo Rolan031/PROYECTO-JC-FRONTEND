@@ -1,4 +1,5 @@
 import './Header.css'
+import { NavLink } from 'react-router-dom'
 import logo from '../../assets/1._Design3x redimensionado no back.png'
 
 export const Header = () => {
@@ -8,10 +9,10 @@ export const Header = () => {
             <h1>Welcome to Gametracker</h1>
             <img src={logo} alt="Imagen Logo" />
             <div className ="links">
-            <a href="">Inicio</a>
-            <a href="">Biblioteca</a>
-            <a href="">Estadisticas</a>
-            <a href="">Reseñas</a>
+            <NavLink to="/inicio" end className="navElement">Inicio</NavLink>
+            <NavLink to="/Biblioteca" end className="navElement">Biblioteca</NavLink>
+            <NavLink to="/Estadisticas"end className="navElement">Estadisticas</NavLink>
+            <NavLink to="/Reseñas"end className="navElement">Reseñas</NavLink>
             </div>
             </nav>
         </header>

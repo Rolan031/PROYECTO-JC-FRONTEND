@@ -10,9 +10,12 @@ body{
     color: whitesmoke;
 }
 .header {
-    background: black;
+    background: #1A1616;
     width: 100%;
     padding: 0.5rem 0.5rem;
+    border: 2px solid #ffffff;
+    border-style: groove;
+    border-radius: 8px;
 }
 
 .nav {

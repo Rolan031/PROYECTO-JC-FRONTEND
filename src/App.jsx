@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { Home } from './components/HOME/Home.jsx'
+import { Home } from './pages/Home/Home.jsx'
 import {Header} from './components/Header/Header.jsx'
 
 const App = () =>{

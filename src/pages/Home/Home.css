@@ -7,14 +7,19 @@
     font-family: play, sans-serif;
 }
 .HomeMain{
-    background-color: #1A1616;
-    min-height: 100vh;
-    padding-top: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 15rem;
+    margin-top: 1rem;
 }
-
-.categoria-container {
+.TarjetaJuego{
+    background-color: #1A1616;
+    width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
+    align-items: center;
+    gap: 2.5rem;
 }
+

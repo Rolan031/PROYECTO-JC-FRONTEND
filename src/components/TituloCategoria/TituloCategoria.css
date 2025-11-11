@@ -15,8 +15,8 @@
     row-gap: 2rem;
     column-gap: 4rem;
     justify-content: center;
-    height: 100%;
     margin-right: 5.5rem;
+    margin-top: 1rem;
 
 }
 h2 {
@@ -29,7 +29,7 @@ h2 {
 
 
 }
-button{
+.FlechaIzq, .FlechaDer{
     width: 4rem;
     height: 2rem;
     box-sizing: 0;
@@ -42,7 +42,10 @@ button{
     height: 20px;
     font-size: 2.5rem;
 }
-button:hover{
+.FlechaDer:hover{
+    color: grey;
+}
+.FlechaIzq:hover{
     color: grey;
 }
 .imagen{

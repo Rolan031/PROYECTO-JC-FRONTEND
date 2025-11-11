@@ -6,13 +6,13 @@ export const Header = () => {
     return (
         <header className= "header">
             <nav className = "nav">
-            <h1>Welcome to Gametracker</h1>
+            <h1>Bienvenido a LUDUS</h1>
             <img src={logo} alt="Imagen Logo" />
             <div className ="links">
             <NavLink to="/inicio" end className="navElement">Inicio</NavLink>
             <NavLink to="/Biblioteca" end className="navElement">Biblioteca</NavLink>
             <NavLink to="/Estadisticas"end className="navElement">Estadisticas</NavLink>
-            <NavLink to="/Reseñas"end className="navElement">Reseñas</NavLink>
+            <NavLink to="/Review"end className="navElement">Reseñas</NavLink>
             </div>
             </nav>
         </header>

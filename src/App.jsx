@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home/Home.jsx'
 import {Header} from './components/Header/Header.jsx'
+import { MenuHamburguesa } from './components/MenuHamburguesa/SideBar.jsx'
 
 const App = () =>{
   return(
-    <>
-    <Router>
+    < >
+    <Router className="App">
       <Header/>
+        
       <Home/>
       </Router>
     </>
@@ -14,7 +16,7 @@ const App = () =>{
 }
  
 
-export default App
+export default App;
 
   
 /*function Leccion(){

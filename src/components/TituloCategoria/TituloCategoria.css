@@ -13,9 +13,9 @@
     grid-template-columns: 11rem 2rem;
     grid-template-rows: 2rem 10rem;
     row-gap: 2rem;
-    column-gap: 4rem;
+    column-gap: 5rem;
     justify-content: center;
-    margin-right: 5.5rem;
+    margin-right: 9.5rem;
     margin-top: 1rem;
 
 }
@@ -54,7 +54,16 @@ h2 {
     width: 125px;
     height: 145px;
     justify-self: start;
-   
+    object-fit: cover;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+.imagen:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(45, 212, 191, 0.3);
+
 }
 .Flechasmov {
     display: flex; 

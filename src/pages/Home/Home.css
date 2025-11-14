@@ -8,18 +8,22 @@
 }
 .HomeMain{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    column-gap: 15rem;
-    margin-top: 1rem;
+    align-items: center;
+    width: 100%;
+    background-color: #1A1616;
+    padding: 2rem 1rem;
 }
 .TarjetaJuego{
     background-color: #1A1616;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2.5rem;
 }
+
 

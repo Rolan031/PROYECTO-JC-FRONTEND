@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nombre": "God of War Ragnarök",
+    "imagen": "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/aqZdSwWyy9JcQ66BxHDKrky6.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Minecraft",
+    "imagen": "https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Valorant",
+    "imagen": "https://th.bing.com/th/id/R.43ff2ba0e04933b381fb82257929729e?rik=UJcTfFI%2fXDi9Xg&riu=http%3a%2f%2fnoticias.maisesports.com.br%2fwp-content%2fuploads%2f2024%2f08%2fvalorant-para-consoles-1200x630.jpg&ehk=KyG3lWG17czB1F2E4JokDFUBUACYQguKwJ3hUPlgpOE%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "id": 4,
+    "nombre": "The Legend of Zelda: Breath of the Wild",
+    "imagen": "https://zelda.nintendo.com/assets/icons/share_icon-fb.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "GTA V",
+    "imagen": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
+  }
+]

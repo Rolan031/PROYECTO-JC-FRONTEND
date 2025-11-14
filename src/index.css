@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1A1616;
+  color: whitesmoke;
+  font-family: 'Play', sans-serif;
+  
+}
+
+html {
+  /* Fix para evitar que el header se mueva con scrollbar */
+  overflow-y: scroll;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor que alinea menú + contenido horizontalmente */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  margin-top: 64px; /* Altura del header fixed */
+  flex: 1;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* El SideBar se queda a la izquierda, sin crecer */
+.main-layout > div:first-child {
+  flex: 0 0 auto;
+}
+
+/* Área de contenido - ocupar el resto del espacio */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+}

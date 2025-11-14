@@ -4,7 +4,7 @@ import { MenuHamburguesa as SideBar } from '../../components/MenuHamburguesa/Sid
 export const Home = () => {
     return (
         <main className="HomeMain">
-            <SideBar/>            
+                       
             <article className='TarjetaJuego'>
                 <TituloCategoria titulo="Jugado recientemente" izquierda="&lt;" derecha="&gt;" />
                 <TituloCategoria titulo="Mas horas jugadas" izquierda="&lt;" derecha="&gt;" />

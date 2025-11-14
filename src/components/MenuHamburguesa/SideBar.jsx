@@ -4,13 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export const MenuHamburguesa = () => {
     const [menu, setMenu] = useState(false)
-    const AbrirMenu = () => {
-        setMenu(true);
-    };
 
-    const CerrarMenu = () => {
-        setMenu(false);
-    };
     useEffect(() => {
         console.log(menu);
     })
@@ -24,7 +18,6 @@ export const MenuHamburguesa = () => {
                 ☰
             </button>}
             {menu &&
-            <div className='bordeSide'>
             <aside className= "AsideBar">
                 <button onClick={() => setMenu(false)} className='Btn-cerrar'>✕</button>
 
@@ -44,7 +37,7 @@ export const MenuHamburguesa = () => {
                         Acerca de
                     </NavLink>
             </aside>
-            </div>
+           
             }
         </section>
     )

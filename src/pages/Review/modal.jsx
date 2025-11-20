@@ -6,52 +6,92 @@ export default function Modal({ juego, onClose }) {
   const [nuevaReseña, setNuevaReseña] = useState('');
   const [editandoId, setEditandoId] = useState(null);
   const [textoEditado, setTextoEditado] = useState('');
-  //UseEffect temporal para asignar reseñas
+
+  // Cargar reseñas desde la BD cuando cambia el juego
   useEffect(() => {
-    const reseñasGuardadas = JSON.parse(localStorage.getItem(`reseñas_${juego.id}`) || '[]');
-    setReseñas(reseñasGuardadas);
-  }, [juego.id]);
-
-  const guardarReseñas = (nuevasReseñas) => {
-    localStorage.setItem(`reseñas_${juego.id}`, JSON.stringify(nuevasReseñas));
-    setReseñas(nuevasReseñas);
-  };
-
-  const agregarReseña = () => {
-    if (nuevaReseña.trim()) {
-      const nuevasReseñas = [
-        ...reseñas,
-        {
-          id: Date.now(),
-          texto: nuevaReseña,
-          fecha: new Date().toLocaleDateString()
+    const fetchReseñas = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/review?juegoId=${juego._id}`);
+        const data = await response.json();
+        if (response.ok) {
+          setReseñas(data);
         }
-      ];
-      guardarReseñas(nuevasReseñas);
-      setNuevaReseña('');
+      } catch (error) {
+        console.error('Error al obtener reseñas:', error);
+      }
+    };
+
+    if (juego?._id) {
+      fetchReseñas();
+    }
+  }, [juego]);
+
+  const agregarReseña = async () => {
+    if (!nuevaReseña.trim()) return;
+
+    try {
+      const response = await fetch('http://localhost:3000/api/review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          juegoId: juego._id,
+          textoReseña: nuevaReseña
+        })
+      });
+      const json = await response.json();
+      if (response.ok) {
+        setReseñas([json, ...reseñas]);
+        setNuevaReseña('');
+      } else {
+        console.error('Error al crear reseña:', json);
+      }
+    } catch (error) {
+      console.error('Error al crear reseña:', error);
     }
   };
 
-  const eliminarReseña = (id) => {
-    if (window.confirm('¿Estás seguro de eliminar esta reseña?')) {
-      const nuevasReseñas = reseñas.filter(r => r.id !== id);
-      guardarReseñas(nuevasReseñas);
+  const eliminarReseña = async (id) => {
+    if (!window.confirm('¿Estás seguro de eliminar esta reseña?')) return;
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/review/${id}`, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        setReseñas(reseñas.filter(r => r._id !== id));
+      } else {
+        const json = await response.json();
+        console.error('Error al eliminar reseña:', json);
+      }
+    } catch (error) {
+      console.error('Error al eliminar reseña:', error);
     }
   };
 
   const iniciarEdicion = (reseña) => {
-    setEditandoId(reseña.id);
-    setTextoEditado(reseña.texto);
+    setEditandoId(reseña._id);
+    setTextoEditado(reseña.textoReseña || '');
   };
 
-  const guardarEdicion = (id) => {
-    if (textoEditado.trim()) {
-      const nuevasReseñas = reseñas.map(r =>
-        r.id === id ? { ...r, texto: textoEditado } : r
-      );
-      guardarReseñas(nuevasReseñas);
-      setEditandoId(null);
-      setTextoEditado('');
+  const guardarEdicion = async (id) => {
+    if (!textoEditado.trim()) return;
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/review/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ textoReseña: textoEditado })
+      });
+      const json = await response.json();
+      if (response.ok) {
+        setReseñas(reseñas.map(r => (r._id === id ? json : r)));
+        setEditandoId(null);
+        setTextoEditado('');
+      } else {
+        console.error('Error al actualizar reseña:', json);
+      }
+    } catch (error) {
+      console.error('Error al actualizar reseña:', error);
     }
   };
 
@@ -60,12 +100,21 @@ export default function Modal({ juego, onClose }) {
     setTextoEditado('');
   };
 
+  const formatearFecha = (fechaIso) => {
+    if (!fechaIso) return '';
+    try {
+      return new Date(fechaIso).toLocaleDateString();
+    } catch {
+      return '';
+    }
+  };
+
   return (
     <div className="modal-overlay">
       <article className="modal-container">
         {/* Header Semántico */}
         <header className="modal-header">
-          <h2 className="modal-title">{juego.nombre}</h2>
+          <h2 className="modal-title">{juego.titulo}</h2>
           <button onClick={onClose} className="close-button" aria-label="Cerrar modal">✖</button>
         </header>
 
@@ -74,8 +123,8 @@ export default function Modal({ juego, onClose }) {
           {/* Sección de Imagen */}
           <section className="image-section">
             <img
-              src={juego.imagen}
-              alt={juego.nombre}
+              src={juego.imagenPortada || 'https://via.placeholder.com/200x300'}
+              alt={juego.titulo}
               className="game-image"
             />
           </section>
@@ -114,8 +163,8 @@ export default function Modal({ juego, onClose }) {
               ) : (
                 <ul className="reviews-container">
                   {reseñas.map((reseña) => (
-                    <li key={reseña.id} className="review-card">
-                      {editandoId === reseña.id ? (
+                    <li key={reseña._id} className="review-card">
+                      {editandoId === reseña._id ? (
                         <>
                           <textarea
                             value={textoEditado}
@@ -125,12 +174,14 @@ export default function Modal({ juego, onClose }) {
                           />
                           <nav className="edit-buttons" aria-label="Opciones de edición">
                             <button
-                              onClick={() => guardarEdicion(reseña.id)}
+                              type="button"
+                              onClick={() => guardarEdicion(reseña._id)}
                               className="save-button"
                             >
                               Guardar
                             </button>
                             <button
+                              type="button"
                               onClick={cancelarEdicion}
                               className="cancel-button"
                             >
@@ -140,18 +191,20 @@ export default function Modal({ juego, onClose }) {
                         </>
                       ) : (
                         <>
-                          <p className="review-text">{reseña.texto}</p>
+                          <p className="review-text">{reseña.textoReseña}</p>
                           <footer className="review-footer">
-                            <time dateTime={reseña.fecha}>{reseña.fecha}</time>
+                            <time dateTime={reseña.createdAt}>{formatearFecha(reseña.createdAt)}</time>
                             <nav className="action-buttons" aria-label="Acciones de la reseña">
                               <button
+                                type="button"
                                 onClick={() => iniciarEdicion(reseña)}
                                 className="edit-button"
                               >
                                 Editar
                               </button>
                               <button
-                                onClick={() => eliminarReseña(reseña.id)}
+                                type="button"
+                                onClick={() => eliminarReseña(reseña._id)}
                                 className="delete-button"
                               >
                                 Eliminar

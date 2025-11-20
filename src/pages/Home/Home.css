@@ -12,8 +12,10 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    height: 100%;
     background-color: #1A1616;
     padding: 2rem 1rem;
+    margin-right: 5rem;
 }
 .TarjetaJuego{
     background-color: #1A1616;

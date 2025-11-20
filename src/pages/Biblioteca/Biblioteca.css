@@ -4,14 +4,14 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-right: 4rem;
+    
 }
 
 .TituloBiblioteca {
     margin: 0;
     text-align: center;
     color: whitesmoke;
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: block;
 }
 
@@ -65,9 +65,155 @@
     border: none;
 }
 .Figure-Img {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+}
+
+.juego-card {
+    position: relative;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: auto;
-    height: auto;
+}
+
+.juego-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(45, 212, 191, 0.3);
+}
+
+.juego-card.modo-editar {
+    border: 2px solid #5a9fd4;
+}
+
+.juego-card.modo-editar:hover {
+    border-color: #4a8fc4;
+    box-shadow: 0 10px 30px rgba(90, 159, 212, 0.5);
+}
+
+.juego-card.seleccionado {
+    border: 2px solid #d32f2f;
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+.juego-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.juego-titulo {
+    padding: 1rem;
+    color: whitesmoke;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.checkbox-overlay {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(211, 47, 47, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d32f2f;
+}
+
+.checkmark {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.no-games-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #aaa;
+    padding: 3rem;
+    font-size: 1.1rem;
+}
+
+.Btn-EliminarSeleccionados {
+    padding: 0.5rem 1rem;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.Btn-EliminarSeleccionados:hover {
+    background-color: #b71c1c;
+    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.4);
+}
+
+button.active {
+    background-color: rgba(90, 159, 212, 0.3);
+    border: 1px solid #5a9fd4;
+}
+
+@media (max-width: 768px) {
+    .Figure-Img {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .juego-imagen {
+        height: 150px;
+    }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
 }

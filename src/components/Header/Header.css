@@ -9,10 +9,11 @@
 body{
     color: whitesmoke;
 }
+
 .header {
     background: #1A1616;
     width: 100%;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
     border-bottom: 3px solid rgba(48, 46, 46, 0.425);
     position: fixed;
     height: 64px;
@@ -20,28 +21,33 @@ body{
     top: 0;
     left: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Titulo-Header {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #e6edf3;
 }
 
 .nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around; 
-    gap: 1rem; 
-    width: 100%;
-}
-
-.nav h1 {
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    color: #e6edf3
-    
+    gap: 1rem;
 }
 
 .nav img {
     height: 40px;
     width: auto;
-    margin-right: 0.5rem;
 }
 
 .links .navElement {

@@ -4,63 +4,125 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #1A1616;
     font-family: play, sans-serif;
 }
-.MenuHamburguesa{
-    margin-top: 100px;
-    width: 120px;
-    height: 70px;
+
+.PrincipalMenu {
+    position: relative;
+    z-index: 1000;
+}
+
+.MenuHamburguesa {
+    width: 50px;
+    height: 50px;
     color: whitesmoke;
     cursor: pointer;
-    border: 2.5px solid rgba(48, 46, 46, 0.425);
-    font-size: 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+    background: transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.MenuHamburguesa:hover{
-    color: grey;
-}
-.AsideBar{
-    display: grid; 
-    /* aumentar ancho del panel y permitir que la segunda columna ocupe el resto */
-    width: 260px;
-    grid-template-columns: 6rem 1fr;
-    justify-content:flex-start;
-    row-gap: 3.5rem;
-    column-gap: 2rem;
-    padding: 1.5rem;
-    border: 2.5px solid rgba(48, 46, 46, 0.425);
 
+.MenuHamburguesa:hover {
+    color: #ccc;
+    border-color: rgba(255, 255, 255, 0.3);
 }
-.PrincipalMenu{
-    margin-bottom: 0;
-    width: 100px;
-    height: 250px;
-    z-index: 1100;
-    
+
+/* Overlay oscuro que cierra el menú */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.2s ease;
 }
-.SideBarElement{
-    display: block;
-    grid-column: 1;
-    text-decoration: none;
-    color: #e6edf3;
-    
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-.Btn-cerrar{
-    grid-column: 2;
-    grid-row: 1;
-    text-align: end;
+
+/* Panel del menú - overlay */
+.AsideBar {
+    position: fixed;
+    top: 64px; /* Debajo del header */
+    left: 0;
+    width: 260px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    background-color: #241f1f;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.8);
+    z-index: 1001;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.Btn-cerrar {
     color: whitesmoke;
     border: 0;
+    background: transparent;
     cursor: pointer;
-    font-size: large;
-    width: 20px;
-    padding-left: 70px;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    align-self: flex-end;
 }
-.Btn-sidebar{
-    border: none;
-    color: #e6edf3;
+
+.Btn-cerrar:hover {
+    color: #ff4444;
+}
+
+.SideBarElement {
+    display: block;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
     cursor: pointer;
-    font-size: 1rem;
-    padding-right: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.SideBarElement:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #2c8c7c;
+}
+
+.Btn-sidebar {
+    border: none;
+    background: transparent;
+    color: whitesmoke;
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+.Btn-sidebar:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 

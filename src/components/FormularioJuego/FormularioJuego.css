@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light+Two&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Serif", serif;
+}
+.Formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: whitesmoke;
+}
+
+.Formulario h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.Formulario fieldset {
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: rgba(42, 42, 42, 0.5);
+}
+
+.Formulario legend {
+    padding: 0 0.5rem;
+    color: #5a9fd4;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.Formulario label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ddd;
+}
+
+.Formulario label:first-child {
+    margin-top: 0;
+}
+
+.Formulario input[type="text"],
+.Formulario input[type="number"],
+.Formulario input[type="url"],
+.Formulario input[type="date"],
+.Formulario select,
+.Formulario textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: whitesmoke;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.Formulario input[type="text"]:focus,
+.Formulario input[type="number"]:focus,
+.Formulario input[type="url"]:focus,
+.Formulario input[type="date"]:focus,
+.Formulario select:focus,
+.Formulario textarea:focus {
+    outline: none;
+    border-color: #5a9fd4;
+    box-shadow: 0 0 4px rgba(90, 159, 212, 0.3);
+}
+
+.Formulario select {
+    cursor: pointer;
+}
+
+.Formulario option {
+    background-color: #333;
+    color: whitesmoke;
+}
+
+.Formulario textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.Formulario input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.Formulario label:has(> input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.Formulario button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Formulario button[type="submit"] {
+    background-color: #5a9fd4;
+    color: white;
+}
+
+.Formulario button[type="submit"]:hover:not(:disabled) {
+    background-color: #4a8fc4;
+    box-shadow: 0 4px 8px rgba(90, 159, 212, 0.4);
+}
+
+.Formulario button[type="submit"]:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.Formulario button[type="button"] {
+    background-color: #555;
+    color: whitesmoke;
+}
+
+.Formulario button[type="button"]:hover {
+    background-color: #666;
+}
+
+/* Estilo específico para botón cancelar */
+.btn-cancelar {
+    background-color: #d32f2f !important;
+    color: white !important;
+}
+
+.btn-cancelar:hover {
+    background-color: #b71c1c !important;
+    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.4) !important;
+}
+
+.Formulario button[type="reset"] {
+    background-color: #666;
+    color: whitesmoke;
+}
+
+.Formulario button[type="reset"]:hover {
+    background-color: #777;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Formulario button + button {
+    margin-left: 0;
+}
+
+.error-message {
+    background-color: rgba(255, 107, 107, 0.1);
+    border: 1px solid #ff6b6b;
+    border-left: 4px solid #ff6b6b;
+    color: #ff9999;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .Formulario {
+        gap: 1rem;
+    }
+
+    .Formulario h2 {
+        font-size: 1.5rem;
+    }
+
+    .Formulario fieldset {
+        padding: 0.75rem;
+    }
+
+    .Formulario button + button {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}

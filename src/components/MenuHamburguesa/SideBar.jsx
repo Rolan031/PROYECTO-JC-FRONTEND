@@ -8,37 +8,81 @@ export const MenuHamburguesa = () => {
     useEffect(() => {
         console.log(menu);
     })
+
+    const cerrarMenu = () => setMenu(false)
+
     return (
         <section className="PrincipalMenu">
-            {!menu &&
             <button
                 className='MenuHamburguesa'
-                onClick={() => setMenu(true)}
+                onClick={() => setMenu(!menu)}
+                aria-label="Abrir menú"
             >
                 ☰
-            </button>}
-            {menu &&
-            <aside className= "AsideBar">
-                <button onClick={() => setMenu(false)} className='Btn-cerrar'>✕</button>
+            </button>
 
-                    <NavLink to="/Review" end className="SideBarElement"onClick={() => setMenu(true)}>
-                        Mis reseñas
+            {/* Overlay oscuro */}
+            {menu && (
+                <div 
+                    className="menu-overlay" 
+                    onClick={cerrarMenu}
+                    
+                ></div>
+            )}
+
+            {/* Panel del menú */}
+            {menu && (
+                <aside className="AsideBar">
+                    <button 
+                        onClick={cerrarMenu} 
+                        className='Btn-cerrar'
+                        aria-label="Cerrar menú"
+                    >
+                        ✕
+                    </button>
+
+                    <NavLink 
+                        to="/" 
+                        end 
+                        className="SideBarElement"
+                        onClick={cerrarMenu}
+                    >
+                        Inicio
                     </NavLink>
-                     <NavLink to="/Review" end className="SideBarElement"onClick={() => setMenu(false)}>
+                    <NavLink 
+                        to="/Biblioteca" 
+                        end 
+                        className="SideBarElement"
+                        onClick={cerrarMenu}
+                    >
                         Mi Biblioteca
                     </NavLink>
-                    <button className="SideBarElement Btn-sidebar" onClick={() => setMenu(false)}>
-                        + Agregar juego
-                    </button>
-                     <NavLink to="/Review" end className="SideBarElement"onClick={() => setMenu(false)}>
+                   <NavLink 
+                        to="/Review" 
+                        end 
+                        className="SideBarElement"
+                        onClick={cerrarMenu}
+                    >
+                        Mis Reseñas
+                    </NavLink>
+                    <NavLink 
+                        to="/Review" 
+                        end 
+                        className="SideBarElement"
+                        onClick={cerrarMenu}
+                    >
                         Claro/Oscuro
                     </NavLink>
-                     <NavLink to="/Review" end className="SideBarElement"onClick={() => setMenu(false)}>
+                    <NavLink 
+                        to="/Review" 
+                        end 
+                        className="SideBarElement"
+                        onClick={cerrarMenu}
+                    >
                         Acerca de
                     </NavLink>
-            </aside>
-           
-            }
+                </aside>
+            )}
         </section>
     )
 }

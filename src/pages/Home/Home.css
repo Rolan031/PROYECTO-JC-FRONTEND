@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: play, sans-serif;
 }
-.HomeMain{
+.HomeMain {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -15,9 +15,10 @@
     height: 100%;
     background-color: #1A1616;
     padding: 2rem 1rem;
-    margin-right: 5rem;
+    margin-right: 3rem;
 }
-.TarjetaJuego{
+
+.TarjetaJuego {
     background-color: #1A1616;
     width: 100%;
     max-width: 600px;
@@ -28,4 +29,34 @@
     gap: 2.5rem;
 }
 
+/* Responsive */
+@media (max-width: 1024px) {
+    .HomeMain {
+        padding: 1.5rem 1rem;
+    }
 
+    .TarjetaJuego {
+        max-width: 100%;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .HomeMain {
+        padding: 1rem 0.5rem;
+    }
+
+    .TarjetaJuego {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .HomeMain {
+        padding: 0.75rem 0.25rem;
+    }
+
+    .TarjetaJuego {
+        gap: 1rem;
+    }
+}

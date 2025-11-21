@@ -1,6 +1,5 @@
 import { TituloCategoria } from '../../components/TituloCategoria/TituloCategoria'
 import './Home.css'
-import { MenuHamburguesa as SideBar } from '../../components/MenuHamburguesa/SideBar'
 import { useState, useEffect } from 'react'
 
 export const Home = () => {

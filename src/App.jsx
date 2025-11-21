@@ -9,7 +9,7 @@ import "./index.css"
 const App = () => {
   return (
     <>
-      <Router>
+      <Router basename="/PROYECTO-JC-FRONTEND">
         <Header />
         {/* Contenedor flex*/}
         <div className="main-layout">

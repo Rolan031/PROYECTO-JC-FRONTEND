@@ -8,7 +8,6 @@ body {
   background-color: #1A1616;
   color: whitesmoke;
   font-family: 'Play', sans-serif;
-  
 }
 
 html {
@@ -30,6 +29,7 @@ html {
   flex: 1;
   gap: 1rem;
   padding: 1rem;
+  width: 100%;
 }
 
 /* El SideBar se queda a la izquierda, sin crecer */
@@ -42,4 +42,25 @@ html {
   flex: 1;
   overflow-y: auto;
   width: 100%;
+  min-width: 0; /* Permite que se ajuste correctamente */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .main-layout > div:first-child {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-layout {
+    padding: 0.25rem;
+    gap: 0.25rem;
+  }
 }

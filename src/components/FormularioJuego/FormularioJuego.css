@@ -176,6 +176,21 @@
     margin-bottom: 1rem;
 }
 
+/* Responsive */
+@media (max-width: 1024px) {
+    .Formulario {
+        gap: 1.25rem;
+    }
+
+    .Formulario h2 {
+        font-size: 1.6rem;
+    }
+
+    .Formulario fieldset {
+        padding: 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
     .Formulario {
         gap: 1rem;
@@ -189,8 +204,99 @@
         padding: 0.75rem;
     }
 
+    .Formulario legend {
+        font-size: 1rem;
+    }
+
+    .Formulario label {
+        font-size: 0.95rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .Formulario input[type="text"],
+    .Formulario input[type="number"],
+    .Formulario input[type="url"],
+    .Formulario input[type="date"],
+    .Formulario select,
+    .Formulario textarea {
+        padding: 0.65rem;
+        font-size: 0.95rem;
+    }
+
+    .Formulario textarea {
+        min-height: 80px;
+    }
+
+    .Formulario button {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .form-buttons {
+        gap: 0.75rem;
+    }
+
     .Formulario button + button {
         margin-left: 0;
         margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .Formulario {
+        gap: 0.75rem;
+    }
+
+    .Formulario h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .Formulario fieldset {
+        padding: 0.6rem;
+        border-radius: 4px;
+    }
+
+    .Formulario legend {
+        font-size: 0.95rem;
+        padding: 0 0.4rem;
+    }
+
+    .Formulario label {
+        font-size: 0.9rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .Formulario input[type="text"],
+    .Formulario input[type="number"],
+    .Formulario input[type="url"],
+    .Formulario input[type="date"],
+    .Formulario select,
+    .Formulario textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .Formulario textarea {
+        min-height: 70px;
+    }
+
+    .Formulario button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .error-message {
+        padding: 0.75rem;
+        font-size: 0.85rem;
     }
 }

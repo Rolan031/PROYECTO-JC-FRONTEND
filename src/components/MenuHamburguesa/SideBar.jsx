@@ -71,14 +71,6 @@ export const MenuHamburguesa = () => {
                         className="SideBarElement"
                         onClick={cerrarMenu}
                     >
-                        Claro/Oscuro
-                    </NavLink>
-                    <NavLink 
-                        to="/Review" 
-                        end 
-                        className="SideBarElement"
-                        onClick={cerrarMenu}
-                    >
                         Acerca de
                     </NavLink>
                 </aside>

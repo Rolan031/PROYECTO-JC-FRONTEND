@@ -126,3 +126,45 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+    .MenuHamburguesa {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+
+    .AsideBar {
+        width: 240px;
+        top: 64px;
+        max-height: calc(100vh - 64px);
+    }
+
+    .SideBarElement {
+        padding: 0.65rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .MenuHamburguesa {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .AsideBar {
+        width: 220px;
+        padding: 0.75rem;
+    }
+
+    .SideBarElement {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .Btn-cerrar {
+        font-size: 1.25rem;
+    }
+}
+
